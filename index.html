@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Redirect Instructions</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      font-family: Arial, sans-serif;
+      color: white;
+    }
+
+    body {
+      background: url('https://your-background-image-link.jpg') no-repeat center center fixed;
+      background-size: cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 20px;
+    }
+
+    .overlay {
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 25px;
+      border-radius: 15px;
+      max-width: 400px;
+      width: 100%;
+    }
+
+    h2 {
+      margin-top: 0;
+      font-size: 1.5rem;
+    }
+
+    p {
+      font-size: 1rem;
+      margin: 10px 0;
+    }
+
+    img {
+      max-width: 100%;
+      border-radius: 10px;
+      margin-top: 15px;
+    }
+  </style>
+</head>
+<body>
+  <div class="overlay">
+    <h2>FOR THE CURIOUS ONES 👀</h2>
+    <p>Follow these steps:</p>
+    <p><strong>1.</strong> Tap the three dots in the top right corner</p>
+    <p><strong>2.</strong> Select "Open in browser"</p>
+    <img src="https://your-gif-link.gif" alt="Open in browser steps">
+  </div>
+
+  <script>
+    const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+    
+    // Detect TikTok in-app browser
+    const isTikTok = userAgent.toLowerCase().includes("tiktok");
+
+    // If NOT in TikTok, redirect user
+    if (!isTikTok) {
+      window.location.href = "https://your-redirect-link.com"; // <-- replace this
+    }
+  </script>
+</body>
+</html>
