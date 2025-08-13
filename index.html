@@ -46,10 +46,14 @@
       border-radius: 10px;
       margin-top: 15px;
     }
+
+    .hidden {
+      display: none;
+    }
   </style>
 </head>
 <body>
-  <div class="overlay">
+  <div class="overlay hidden" id="tiktok-overlay">
     <h2>FOR THE CURIOUS ONES 👀</h2>
     <p>Follow these steps:</p>
     <p><strong>1.</strong> Tap the three dots in the top right corner</p>
@@ -59,13 +63,16 @@
 
   <script>
     const userAgent = navigator.userAgent || navigator.vendor || window.opera;
-    
-    // Detect TikTok in-app browser
-    const isTikTok = userAgent.toLowerCase().includes("tiktok");
 
-    // If NOT in TikTok, redirect user
-    if (!isTikTok) {
-      window.location.href = "https://dfans.co/clairestormxoxo"; // <-- replace this
+    // Detect TikTok in-app browser (robust check)
+    const isTikTok = /TikTok/i.test(userAgent);
+
+    if (isTikTok) {
+      // Show overlay for TikTok users
+      document.getElementById('tiktok-overlay').classList.remove('hidden');
+    } else {
+      // Redirect users NOT in TikTok
+      window.location.href = "https://dfans.co/clairestormxoxo"; // <-- replace with your target
     }
   </script>
 </body>
