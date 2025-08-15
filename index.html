@@ -58,15 +58,21 @@
   </div>
 
   <script>
-    const userAgent = navigator.userAgent || navigator.vendor || window.opera;
-    
-    // Detect TikTok in-app browser
-    const isTikTok = userAgent.toLowerCase().includes("tiktok");
+  const userAgent = navigator.userAgent || navigator.vendor || window.opera;
+  const uaLower = userAgent.toLowerCase();
 
-    // If NOT in TikTok, redirect user
-    if (!isTikTok) {
-      window.location.href = "https://dfans.co/clairestormxoxo"; // <-- replace this
-    }
-  </script>
+  // Detect TikTok in-app browser more reliably
+  const isTikTok = uaLower.includes("tiktok") ||
+                   uaLower.includes("musical_ly") ||
+                   uaLower.includes("trill") ||
+                   uaLower.includes("bytelocale") ||
+                   uaLower.includes("bytedancewebview");
+
+  // If NOT in TikTok, redirect user
+  if (!isTikTok) {
+    window.location.href = "https://dfans.co/clairestormxoxo"; // <-- replace this
+  }
+</script>
+  
 </body>
 </html>
